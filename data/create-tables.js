@@ -11,13 +11,12 @@ async function run() {
     // run a query to create tables
     await client.query(`          
       CREATE TABLE cats (
-        id SERIAL PRIMARY KEY NOT NULL,
         name VARCHAR(512) NOT NULL,
-        type VARCHAR(512) NOT NULL,
+        pokemon_number INTEGER NOT NULL,
+        type_1 VARCHAR(512) NOT NULL,
+        ability_1 VARCHAR(512) NOT NULL,
         url VARCHAR(1024) NOT NULL,
-        year INTEGER NOT NULL,
-        lives INTEGER NOT NULL,
-        is_sidekick BOOLEAN DEFAULT FALSE
+        is_Mega_Evolution BOOLEAN DEFAULT FALSE
       );
     `);
 
