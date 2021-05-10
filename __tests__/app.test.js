@@ -17,7 +17,7 @@ describe('API Routes', () => {
 
   const expectedPokemon = [
     {
-
+      'id': 1,
       'name': 'butterfree',
       'pokemon_number': 16,
       'type_1': 'bug',
@@ -26,7 +26,7 @@ describe('API Routes', () => {
       'isMegaEvolution': false
     },
     {
-
+      'id': 2,
       'name': 'venusaur-mega',
       'pokemon_number': 4,
       'type_1': 'grass',
@@ -35,7 +35,7 @@ describe('API Routes', () => {
       'isMegaEvolution': true
     },
     {
-
+      'id': 3,
       'name': 'pidgeotto',
       'pokemon_number': 22,
       'type_1': 'normal',
@@ -44,17 +44,16 @@ describe('API Routes', () => {
       'isMegaEvolution': false
     },
     {
-
+      'id': 4,
       'name': 'arbok',
       'pokemon_number': 30,
       'type_1': 'poison',
-
       'ability_1': 'intimidate',
       'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/024.png',
       'isMegaEvolution': false
     },
     {
-
+      'id': 5,
       'name': 'pikachu',
       'pokemon_number': 31,
       'type_1': 'electric',
@@ -63,7 +62,7 @@ describe('API Routes', () => {
       'isMegaEvolution': false
     },
     {
-
+      'id': 6,
       'name': 'clefairy',
       'pokemon_number': 41,
       'type_1': 'fairy',
@@ -72,7 +71,7 @@ describe('API Routes', () => {
       'isMegaEvolution': false
     },
     {
-
+      'id': 7,
       'name': 'jigglypuff',
       'pokemon_number': 45,
       'type_1': 'normal',
@@ -81,7 +80,7 @@ describe('API Routes', () => {
       'isMegaEvolution': false
     },
     {
-
+      'id': 8,
       'name': 'charmeleon',
       'pokemon_number': 6,
       'type_1': 'fire',

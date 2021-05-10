@@ -13,10 +13,10 @@ async function run() {
     await Promise.all(
       pokemon.map(pokemon => {
         return client.query(`
-          INSERT INTO  (name, type, url, year, lives, is_sidekick)
+          INSERT INTO pokemon (name, pokemon_number, type_1, ability_1, url_image, is_Mega_Evolution)
           VALUES ($1, $2, $3, $4, $5, $6);
         `,
-          [pokemon.name, pokemon.type, pokemon.url, pokemon.year, pokemon.lives, pokemon.isSidekick]);
+          [pokemon.name, pokemon.pokemon_number, pokemon.type_1, pokemon.ability_1, pokemon.url_image, pokemon.isMegaEvolution]);
       })
     );
     
