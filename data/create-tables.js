@@ -10,7 +10,7 @@ async function run() {
 
     // run a query to create tables
     await client.query(`          
-      CREATE TABLE cats (
+      CREATE TABLE pokemon (
         name VARCHAR(512) NOT NULL,
         pokemon_number INTEGER NOT NULL,
         type_1 VARCHAR(512) NOT NULL,

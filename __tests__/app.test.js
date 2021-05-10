@@ -15,102 +15,103 @@ describe('API Routes', () => {
     return client.end();
   });
 
-  const expectedCats = [
+  const expectedPokemon = [
     {
-      id: expect.any(Number),
-      name: 'Felix',
-      type: 'Tuxedo',
-      url: 'cats/felix.png',
-      year: 1892,
-      lives: 3,
-      isSidekick: false
+
+      'name': 'butterfree',
+      'pokemon_number': 16,
+      'type_1': 'bug',
+      'ability_1': 'compound-eyes',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png',
+      'isMegaEvolution': false
     },
     {
-      id: expect.any(Number),
-      name: 'Garfield',
-      type: 'Orange Tabby',
-      url: 'cats/garfield.jpeg',
-      year: 1978,
-      lives: 7,
-      isSidekick: false
+
+      'name': 'venusaur-mega',
+      'pokemon_number': 4,
+      'type_1': 'grass',
+      'ability_1': 'thick-fat',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/003_f2.png',
+      'isMegaEvolution': true
     },
     {
-      id: expect.any(Number),
-      name: 'Duchess',
-      type: 'Angora',
-      url: 'cats/duchess.jpeg',
-      year: 1970,
-      lives: 9,
-      isSidekick: false
+
+      'name': 'pidgeotto',
+      'pokemon_number': 22,
+      'type_1': 'normal',
+      'ability_1': 'keen-eye',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/017.png',
+      'isMegaEvolution': false
     },
     {
-      id: expect.any(Number),
-      name: 'Stimpy',
-      type: 'Manx',
-      url: 'cats/stimpy.jpeg',
-      year: 1990,
-      lives: 1,
-      isSidekick: true
+
+      'name': 'arbok',
+      'pokemon_number': 30,
+      'type_1': 'poison',
+
+      'ability_1': 'intimidate',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/024.png',
+      'isMegaEvolution': false
     },
     {
-      id: expect.any(Number),
-      name: 'Sylvester',
-      type: 'Tuxedo',
-      url: 'cats/sylvester.jpeg',
-      year: 1945,
-      lives: 1,
-      isSidekick: true
+
+      'name': 'pikachu',
+      'pokemon_number': 31,
+      'type_1': 'electric',
+      'ability_1': 'static',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png',
+      'isMegaEvolution': false
     },
     {
-      id: expect.any(Number),
-      name: 'Tigger',
-      type: 'Orange Tabby',
-      url: 'cats/tigger.jpeg',
-      year: 1928,
-      lives: 8,
-      isSidekick: false
+
+      'name': 'clefairy',
+      'pokemon_number': 41,
+      'type_1': 'fairy',
+      'ability_1': 'cute-charm',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/035.png',
+      'isMegaEvolution': false
     },
     {
-      id: expect.any(Number),
-      name: 'Hello Kitty',
-      type: 'Angora',
-      url: 'cats/hello-kitty.jpeg',
-      year: 1974,
-      lives: 9,
-      isSidekick: false
+
+      'name': 'jigglypuff',
+      'pokemon_number': 45,
+      'type_1': 'normal',
+      'ability_1': 'cute-charm',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/039.png',
+      'isMegaEvolution': false
     },
     {
-      id: expect.any(Number),
-      name: 'Hobbs',
-      type: 'Orange Tabby',
-      url: 'cats/hobbs.jpeg',
-      year: 1985,
-      lives: 6,
-      isSidekick: true
-    }
+
+      'name': 'charmeleon',
+      'pokemon_number': 6,
+      'type_1': 'fire',
+      'ability_1': 'blaze',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png',
+      'isMegaEvolution': false
+    },
   ];
 
-  // If a GET request is made to /api/cats, does:
+  // If a GET request is made to /api/pokemon, does:
   // 1) the server respond with status of 200
   // 2) the body match the expected API data?
-  it('GET /api/cats', async () => {
+  it('GET /api/pokemon', async () => {
     // act - make the request
-    const response = await request.get('/api/cats');
+    const response = await request.get('/api/pokemon');
 
     // was response OK (200)?
     expect(response.status).toBe(200);
 
     // did it return the data we expected?
-    expect(response.body).toEqual(expectedCats);
+    expect(response.body).toEqual(expectedPokemon);
 
   });
 
-  // If a GET request is made to /api/cats/:id, does:
+  // If a GET request is made to /api/pokemon/:id, does:
   // 1) the server respond with status of 200
   // 2) the body match the expected API data for the cat with that id?
-  test('GET /api/cats/:id', async () => {
-    const response = await request.get('/api/cats/2');
+  test('GET /api/pokemon/:id', async () => {
+    const response = await request.get('/api/pokemon/2');
     expect(response.status).toBe(200);
-    expect(response.body).toEqual(expectedCats[1]);
+    expect(response.body).toEqual(expectedPokemon[1]);
   });
 });
