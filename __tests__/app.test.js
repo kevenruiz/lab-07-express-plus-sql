@@ -40,8 +40,9 @@ describe('API Routes', () => {
       'ability_1': 'thick-fat',
       'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/003_f2.png',
       'isMegaEvolution': true
-    },
-    {
+    };
+
+    let pidgeotto = {
       'id': 3,
       'name': 'pidgeotto',
       'pokemon_number': 22,
@@ -49,8 +50,8 @@ describe('API Routes', () => {
       'ability_1': 'keen-eye',
       'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/017.png',
       'isMegaEvolution': false
-    },
-    {
+    };
+    let arbok = {
       'id': 4,
       'name': 'arbok',
       'pokemon_number': 30,
@@ -58,8 +59,8 @@ describe('API Routes', () => {
       'ability_1': 'intimidate',
       'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/024.png',
       'isMegaEvolution': false
-    },
-    {
+    };
+    let pikachu = {
       'id': 5,
       'name': 'pikachu',
       'pokemon_number': 31,
@@ -67,8 +68,8 @@ describe('API Routes', () => {
       'ability_1': 'static',
       'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png',
       'isMegaEvolution': false
-    },
-    {
+    };
+    let clefairy = {
       'id': 6,
       'name': 'clefairy',
       'pokemon_number': 41,
@@ -76,8 +77,8 @@ describe('API Routes', () => {
       'ability_1': 'cute-charm',
       'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/035.png',
       'isMegaEvolution': false
-    },
-    {
+    };
+    let jigglypuff = {
       'id': 7,
       'name': 'jigglypuff',
       'pokemon_number': 45,
@@ -85,8 +86,8 @@ describe('API Routes', () => {
       'ability_1': 'cute-charm',
       'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/039.png',
       'isMegaEvolution': false
-    },
-    {
+    };
+    let charmeleon = {
       'id': 8,
       'name': 'charmeleon',
       'pokemon_number': 6,
@@ -94,7 +95,7 @@ describe('API Routes', () => {
       'ability_1': 'blaze',
       'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png',
       'isMegaEvolution': false
-    }
+    };
   });
 
   // If a GET request is made to /api/pokemon, does:
