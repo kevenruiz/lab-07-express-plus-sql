@@ -147,7 +147,7 @@ describe('API Routes', () => {
   it('GET list of pokemon from /api/pokemon', async () => {
     const r1 = await request.post('/api/pokemon').send(raichu);
     raichu = r1.body;
-    const r2 = await request.post('/api/dogs').send(lugia);
+    const r2 = await request.post('/api/pokemon').send(lugia);
     lugia = r2.body;
 
     const response = await request.get('/api/pokemon');
