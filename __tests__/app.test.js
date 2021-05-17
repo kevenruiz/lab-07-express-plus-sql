@@ -102,7 +102,7 @@ describe('API Routes', () => {
     }];
     */
 
-  let Raichu = {
+  let raichu = {
     id: expect.any(Number),
     name: 'Raichu',
     pokemon_number: 32,
@@ -112,27 +112,123 @@ describe('API Routes', () => {
     isMegaEvolution: false
   };
 
+  let lugia = {
+    id: expect.any(Number),
+    name: 'Lugia',
+    pokemon_number: 249,
+    type_1: 'psychic',
+    ability_1: 'flying',
+    url_image: '',
+    isMegaEvolution: false
+  };
+
 
   it('POST tramp to /api/pokemon', async () => {
     const response = await request
       .post('/api/dogs')
-      .send(Raichu);
+      .send(raichu);
 
     expect(response.status).toBe(200);
-    expect(response.body).toEqual(Raichu);
+    expect(response.body).toEqual(raichu);
 
-    Raichu = response.body;
+    raichu = response.body;
   });
 
   it('PUT updated tramp to /api/pokemon/:id', async () => {
-    Raichu.pokemon_number = 35;
-    Raichu.name = 'tramp';
+    raichu.pokemon_number = 35;
+    raichu.name = 'tramp';
 
     const response = await request
-      .put(`/api/pokemon/${Raichu.id}`)
-      .send(Raichu);
+      .put(`/api/pokemon/${raichu.id}`)
+      .send(raichu);
 
   });
+
+  it('GET list of pokemon from /api/pokemon', async () => {
+    const r1 = await request.post('/api/pokemon').send(raichu);
+    raichu = r1.body;
+    const r2 = await request.post('/api/dogs').send(lugia);
+    lugia = r2.body;
+
+    const response = await request.get('/api/dogs');
+
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual(expect.arrayContaining([{
+      'id': 1,
+      'name': 'butterfree',
+      'pokemon_number': 16,
+      'type_1': 'bug',
+      'ability_1': 'compound-eyes',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png',
+      'isMegaEvolution': false
+    },
+    {
+      'id': 2,
+      'name': 'venusaur-mega',
+      'pokemon_number': 4,
+      'type_1': 'grass',
+      'ability_1': 'thick-fat',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/003_f2.png',
+      'isMegaEvolution': true
+    },
+    {
+      'id': 3,
+      'name': 'pidgeotto',
+      'pokemon_number': 22,
+      'type_1': 'normal',
+      'ability_1': 'keen-eye',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/017.png',
+      'isMegaEvolution': false
+    },
+    {
+      'id': 4,
+      'name': 'arbok',
+      'pokemon_number': 30,
+      'type_1': 'poison',
+      'ability_1': 'intimidate',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/024.png',
+      'isMegaEvolution': false
+    },
+    {
+      'id': 5,
+      'name': 'pikachu',
+      'pokemon_number': 31,
+      'type_1': 'electric',
+      'ability_1': 'static',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png',
+      'isMegaEvolution': false
+    },
+    {
+      'id': 6,
+      'name': 'clefairy',
+      'pokemon_number': 41,
+      'type_1': 'fairy',
+      'ability_1': 'cute-charm',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/035.png',
+      'isMegaEvolution': false
+    },
+    {
+      'id': 7,
+      'name': 'jigglypuff',
+      'pokemon_number': 45,
+      'type_1': 'normal',
+      'ability_1': 'cute-charm',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/039.png',
+      'isMegaEvolution': false
+    },
+    {
+      'id': 8,
+      'name': 'charmeleon',
+      'pokemon_number': 6,
+      'type_1': 'fire',
+      'ability_1': 'blaze',
+      'url_image': 'http://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png',
+      'isMegaEvolution': false
+    }])
+    );
+  });
+
+
 
 
   // If a GET request is made to /api/pokemon, does:
