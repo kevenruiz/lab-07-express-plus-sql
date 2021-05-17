@@ -104,7 +104,7 @@ describe('API Routes', () => {
 
   let Raichu = {
     id: expect.any(Number),
-    name: 'Raichuchu',
+    name: 'Raichu',
     pokemon_number: 32,
     type_1: 'electric',
     ability_1: 'static',
