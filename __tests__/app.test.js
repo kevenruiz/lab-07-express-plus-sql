@@ -123,9 +123,9 @@ describe('API Routes', () => {
   };
 
 
-  it('POST tramp to /api/pokemon', async () => {
+  it('POST raichu to /api/pokemon', async () => {
     const response = await request
-      .post('/api/dogs')
+      .post('/api/pokemon')
       .send(raichu);
 
     expect(response.status).toBe(200);
@@ -134,9 +134,9 @@ describe('API Routes', () => {
     raichu = response.body;
   });
 
-  it('PUT updated tramp to /api/pokemon/:id', async () => {
+  it('PUT updated raichu to /api/pokemon/:id', async () => {
     raichu.pokemon_number = 35;
-    raichu.name = 'tramp';
+    raichu.name = 'raichu';
 
     const response = await request
       .put(`/api/pokemon/${raichu.id}`)
@@ -150,7 +150,7 @@ describe('API Routes', () => {
     const r2 = await request.post('/api/dogs').send(lugia);
     lugia = r2.body;
 
-    const response = await request.get('/api/dogs');
+    const response = await request.get('/api/pokemon');
 
     expect(response.status).toBe(200);
     expect(response.body).toEqual(expect.arrayContaining([{
