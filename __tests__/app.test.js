@@ -164,6 +164,7 @@ describe('API Routes', () => {
     const response = await request
       .put(`/api/pokemon/${raichu.id}`)
       .send(raichu);
+    response;
 
   });
 
