@@ -1,7 +1,8 @@
+/* eslint-disable indent */
 /* eslint-disable no-console */
 import client from '../lib/client.js';
 // import our seed data:
-import cats from './cats.js';
+import pokemon from './pokemon.js';
 
 run();
 
@@ -10,12 +11,12 @@ async function run() {
   try {
 
     await Promise.all(
-      cats.map(cat => {
+      pokemon.map(pokemon => {
         return client.query(`
-          INSERT INTO cats (name, type, url, year, lives, is_sidekick)
+          INSERT INTO pokemon (name, pokemon_number, type_1, ability_1, url_image, is_Mega_Evolution)
           VALUES ($1, $2, $3, $4, $5, $6);
         `,
-        [cat.name, cat.type, cat.url, cat.year, cat.lives, cat.isSidekick]);
+          [pokemon.name, pokemon.pokemon_number, pokemon.type_1, pokemon.ability_1, pokemon.url_image, pokemon.isMegaEvolution]);
       })
     );
     
