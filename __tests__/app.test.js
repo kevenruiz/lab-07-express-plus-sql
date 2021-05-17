@@ -124,6 +124,16 @@ describe('API Routes', () => {
     Raichu = response.body;
   });
 
+  it('PUT updated tramp to /api/pokemon/:id', async () => {
+    Raichu.pokemon_number = 35;
+    Raichu.name = 'tramp';
+
+    const response = await request
+      .put(`/api/pokemon/${Raichu.id}`)
+      .send(Raichu);
+
+  });
+
 
   // If a GET request is made to /api/pokemon, does:
   // 1) the server respond with status of 200
