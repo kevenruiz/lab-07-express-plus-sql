@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import app from '../lib/app.js';
 import supertest from 'supertest';
 import client from '../lib/client.js';
@@ -104,28 +105,20 @@ describe('API Routes', () => {
 
   let expectedRaichu = {
     id: expect.any(Number),
-    name: 'Raichu',
-    pokemon_number: 32,
+    name: 'raichu',
+    pokemon_number: 35,
     type_1: 'electric',
     ability_1: 'static',
     url_image: '',
     isMegaEvolution: false
   };
 
-  let Raichu = {
-    id: 9,
-    name: 'Raichu',
-    pokemon_number: 32,
-    type_1: 'electric',
-    ability_1: 'static',
-    url_image: '',
-    isMegaEvolution: false
-  };
+
 
   let raichu = {
-    id: 35,
-    name: 'Raichu',
-    pokemon_number: 32,
+    id: expect.any(Number),
+    name: 'raichu',
+    pokemon_number: 35,
     type_1: 'electric',
     ability_1: 'static',
     url_image: '',
@@ -146,7 +139,7 @@ describe('API Routes', () => {
   };
 
 
-  it.skip('POST raichu to /api/pokemon', async () => {
+  it('POST raichu to /api/pokemon', async () => {
     const response = await request
       .post('/api/pokemon')
       .send(raichu);
@@ -168,7 +161,7 @@ describe('API Routes', () => {
 
   });
 
-  it.skip('GET raichu from /api/pokemon/:id', async () => {
+  it('GET raichu from /api/pokemon/:id', async () => {
     const response = await request.get(`/api/pokemon/${raichu.id}`);
     expect(response.status).toBe(200);
     expect(response.body).toEqual(raichu);
@@ -260,14 +253,14 @@ describe('API Routes', () => {
 
   });
 
-  it.skip('DELETE Raichu from /api/pokemon/:id', async () => {
-    const response = await request.delete(`/api/pokemon/${Raichu.id}`);
+  it('DELETE Raichu from /api/pokemon/:id', async () => {
+    const response = await request.delete(`/api/pokemon/${raichu.id}`);
     expect(response.status).toBe(200);
     expect(response.body).toEqual(expectedRaichu);
 
     const getResponse = await request.get('/api/pokemon');
     expect(getResponse.status).toBe(200);
-    expect(getResponse.body).toEqual(expect.arrayContaining([{
+    expect(getResponse.body).toEqual([{
       'id': 1,
       'name': 'butterfree',
       'pokemon_number': 16,
@@ -341,15 +334,6 @@ describe('API Routes', () => {
     },
     {
       'id': 9,
-      'name': 'Raichu',
-      'pokemon_number': 32,
-      'type_1': 'electric',
-      'ability_1': 'static',
-      'url_image': '',
-      'isMegaEvolution': false
-    },
-    {
-      'id': 10,
       'name': 'raichu',
       'pokemon_number': 35,
       'type_1': 'electric',
@@ -365,7 +349,7 @@ describe('API Routes', () => {
       'ability_1': 'flying',
       'url_image': '',
       'isMegaEvolution': false
-    }]));
+      }]);
   });
 
 
